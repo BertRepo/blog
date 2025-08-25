@@ -13,7 +13,7 @@ tag:
 
 ## Node.js
 * [Node基础](./node/%20node.md)<Badge text="暂未整理" type="info" />
-* [nodejs+socket.io实现p2p消息实时发送](./node/socket_io.md)
+* [nodejs+socket.io实现p2p消息实时发送](./node/socketio.md)
 
 ## Java
 
