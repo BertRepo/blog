@@ -80,4 +80,4 @@ git-bn get main
 + 🎯 简单直观的命令行界面
 
 ## 示例
-![示例](./assets/image.png)
+![示例](../image/git-branch-note/image.png)
