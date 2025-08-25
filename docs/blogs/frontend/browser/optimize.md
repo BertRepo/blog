@@ -7,7 +7,7 @@ hidden: false
 comment: true
 sticky: 105
 top: 100
-recommend: 2
+recommend: 26
 tag:
   - 前端
 category:

@@ -43,22 +43,30 @@ tag:
 
 - [说说工程化设计到的知识和工具](./project/work.md)
 - [前端缓存](./project/cache.md)
-- [打包工具](./project/webpack.md)<Badge text="暂未整理" type="info" />
-- [npm](./project/npm.md)<Badge text="暂未整理" type="info" />
-- [pnpm](./project/pnpm.md)
 - [git 基础](./project/git.md)
 - [git 进阶](./project/git_more.md)
 - [js 库开发](./project/module_develop.md)
 - [理解受控/非受控组件](./project/component.md)
+- [Electron项目中扫码功能的深度优化：Worker线程与系统级键盘监听实战](./project/scan_code.md)
+- [B端项目版本同步方案：基于Vite插件的自动化实践](./project/vite_plugin.md)
+- [记一次交互优化：从根源上解决Axios请求竞态问题](./project/axios.md)
+- [打包工具](./project/webpack.md)<Badge text="暂未整理" type="info" />
+- [npm](./project/npm.md)<Badge text="暂未整理" type="info" />
+- [pnpm](./project/pnpm.md)
+- [git-branch-notes：一个帮助你管理项目中git分支备注的npm包](./project/git_branch_notes.md)
+- [前端性能优化](./browser/optimize.md)<Badge text="整理中" type="warning" />
 
 ## 框架
 
 - [Vue 全家桶](./frame/vue.md)
 - [React 全家桶](./frame/react.md) <Badge text="暂未整理" type="info" />
+- [electron 学习](./frame/electron.md)
 
 ## 扩展
 
 - [面试中的手写题](./extend/study.md)<Badge text="整理中" type="warning" />
+- [前端发展方向分享](./extend/grow.md)
+- [3D开发学习路径](./extend/3dStudy.md)
 - [前端相关网站分享](./extend/resource.md)
 
 我会多多更新哒～
