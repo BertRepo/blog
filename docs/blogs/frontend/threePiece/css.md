@@ -252,3 +252,55 @@ feature: 内容决定大小，可以通过css改变宽高
 >+ percentage 百分比，100%与1em相同。
 
 >+ 有单位（包括百分比）与无单位之间的区别有单位时，子元素继承了父元素计算得出的行距；无单位时继承了系数，子元素会分别计算各自行距（推荐使用）。
+
+
+### 举例说明伪类:nth-child、:first-child与:first-of-type这三者有什么不同？
+
+在CSS中，伪类:nth-child、:first-child和:first-of-type都是用于选择特定元素的，但它们之间有一些重要的区别。下面我会详细解释这三个伪类，并通过例子来说明它们之间的不同。
+
+#### :nth-child(n)
+:nth-child(n)伪类用于选择父元素中的第n个子元素。这里的n可以是一个具体的数字，也可以是一个公式（如2n、2n+1等），用于选择符合特定规律的子元素。
+
+例如，li:nth-child(2)会选择每个ul或ol中的第二个li元素。而li:nth-child(2n)则会选择所有偶数位置的li元素。
+
+```html
+<ul>
+  <li>Item 1</li> <!-- 不会被选中 -->
+  <li>Item 2</li> <!-- 会被 li:nth-child(2) 选中 -->
+  <li>Item 3</li> <!-- 不会被选中 -->
+  <li>Item 4</li> <!-- 会被 li:nth-child(2n) 选中 -->
+</ul>
+```
+
+#### :first-child
+:first-child伪类用于选择父元素中的第一个子元素。这个伪类非常直接，只选择第一个子元素，不考虑元素的类型。
+
+例如，li:first-child会选择每个ul或ol中的第一个li元素。
+
+```html
+<ul>
+  <li>Item 1</li> <!-- 会被 li:first-child 选中 -->
+  <li>Item 2</li> <!-- 不会被选中 -->
+  <li>Item 3</li> <!-- 不会被选中 -->
+</ul>
+```
+
+#### :first-of-type
+:first-of-type伪类用于选择父元素中第一个特定类型的子元素。与:first-child不同，:first-of-type会考虑元素的类型。
+
+例如，li:first-of-type会选择每个ul或ol中的第一个li元素，即使它不是列表中的第一个子元素（比如前面有其他的非li元素）。
+
+```html
+<ul>
+  <div>Some other element</div> <!-- 不会被选中 -->
+  <li>Item 1</li> <!-- 会被 li:first-of-type 选中，因为它是第一个 li 元素 -->
+  <li>Item 2</li> <!-- 不会被选中 -->
+</ul>
+```
+
+
+#### 总结
+
+>+ :nth-child(n)通过位置来选择子元素，可以指定具体的数字或使用公式。
+>+ :first-child直接选择第一个子元素，不考虑类型。
+>+ :first-of-type选择第一个特定类型的子元素，即使它不是第一个子元素。
