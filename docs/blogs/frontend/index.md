@@ -20,7 +20,7 @@ tag:
 
 ## 前端三件套
 
-### 三件套基础知识点
+#### 基础
 
 - JavaScript = [ECMAScript](./threePiece/js.md) + [BOM](./threePiece/window.md) + [DOM](./threePiece/dom.md)
 
@@ -34,27 +34,48 @@ tag:
 - [Html](./threePiece/html.md)
 - [CSS](./threePiece/css.md)
 
-### 三件套中重要知识点
+#### 重要
 
 - [CSS 属性值计算过程](./threePiece/cssAttr.md)
 - [两栏、双飞翼、圣杯三种布局](./threePiece/layout.md)
+
+
+## 框架
+
+#### vue
+
+- [Vue 全家桶-基础 必知道](./frame/vue.md)
+- [Vue 基础但不常用 也知道](./frame/vue_other.md)
+- [Vue 最新知识学习](./frame/vue_update.md)<Badge text="随着Vue更新而持续更新" type="success" />
+
+#### react
+
+- [React](./frame/react.md) <Badge text="暂未整理" type="info" />
+
+#### 跨平台
+
+- [electron](./frame/electron.md)
+<!-- - [Node 学习](./frame/node.md) -->
+- [Flutter](./frame/flutter.md)<Badge text="暂未整理" type="info" />
+- [React Native](./frame/react_native.md)<Badge text="暂未整理" type="info" />
+
 
 ## 工程化
 
 - [说说工程化设计到的知识和工具](./project/work.md)
 
-### 模块化&&包管理
+#### 模块化&&包管理
 
 - [npm](./project/npm.md)<Badge text="暂未整理" type="info" />
 - [pnpm](./project/pnpm.md)
 
-### 打包
+#### 打包
 
 - [webpack 原理认知](./project/webpack.md)
 - [vite 原理认知](./project/vite.md)<Badge text="暂未整理" type="info" />
 - [打包可视化分析](./project/package_visualizer.md)<Badge text="整理中" type="warning" />
 
-### 性能/代码优化
+#### 性能/代码优化
 
 - [Electron项目中扫码功能的深度优化：Worker线程与系统级键盘监听实战](./project/scan_code.md)
 - [记一次交互优化：从根源上解决Axios请求竞态问题](./project/axios.md)
@@ -62,21 +83,13 @@ tag:
 - [前端缓存](./project/cache.md)
 - [前端性能优化](./browser/optimize.md)<Badge text="整理中" type="warning" />
 
-### 其他
+#### 其他
 
 - [js 库开发](./project/module_develop.md)
 - [理解受控/非受控组件](./project/component.md)
 
 
-## 框架
-
-- [Vue 全家桶-基础](./frame/vue.md)
-- [React 全家桶](./frame/react.md) <Badge text="暂未整理" type="info" />
-- [electron 学习](./frame/electron.md)
-<!-- - [Node 学习](./frame/node.md) -->
-- [Vue 最新知识学习](./frame/vue_update.md)<Badge text="随着Vue更新而持续更新" type="success" />
-
-## 工具
+## 其他工具
 
 - [git 基础](./project/git.md)
 - [git 进阶](./project/git_more.md)
@@ -89,9 +102,11 @@ tag:
 - [3D开发学习路径](./extend/3dStudy.md)
 - [前端相关网站分享](./extend/resource.md)
 
+<!-- - [AI] -->
 
 ## 我的开源
 
 - [git-branch-notes：一个帮助你管理项目中git分支备注的npm包](./project/git_branch_notes.md)
 
-我会多多更新哒～
+
+闲暇时，会多多更新哒～

@@ -452,3 +452,7 @@ axios.get('/install/count').then({function ({
 ## 安全防护
 
 学习中……
+
+
+真的开发了一个 js 库，名字叫 git-branch-notes，它的功能是帮助你管理项目中 git 分支的备注。
+跳转链接：[git-branch-notes](https://www.npmjs.com/package/git-branch-notes)
