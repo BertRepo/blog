@@ -63,6 +63,7 @@ tag:
 ## 工程化
 
 - [说说工程化设计到的知识和工具](./project/work.md)
+- [vscode 架构与插件原理认知](./project/vscode.md)
 
 #### 模块化&&包管理
 
