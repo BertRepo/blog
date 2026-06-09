@@ -9,7 +9,7 @@ env:
   TZ: Asia/Shanghai
 
 permissions:
-  contents: write  # 需要写入权限以推送 gh-pages 分支
+  contents: write
   pages: write
   id-token: write
 
@@ -36,20 +36,18 @@ jobs:
       - name: Build VitePress
         run: pnpm build
 
-      - name: Generate CNAME
-        run: echo "smarthua.cn" > docs/.vitepress/dist/CNAME
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist  # 上传构建后的 dist 目录
+          path: docs/.vitepress/dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://smarthua.cn
+      # 可选：如果仓库名是 blog，可以设置 url
+      # url: https://bertrepo.github.io/blog/
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
