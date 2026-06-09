@@ -56,18 +56,30 @@ const blogTheme = getThemeConfig({
   // 友链
   friend: [
     {
-      nickname: 'Bert',
-      des: '博主之前的个人网站',
-      avatar:
-        '/title.png',
-      url: 'http://bert.smarthua.cn',
-    },
-    {
       nickname: '闲坐含香咀翠',
       des: '博主的掘金主页',
-      avatar:
-        'https://p26-passport.byteacctimg.com/img/user-avatar/92664f5e02431cd639a4dbd021ae44e1~170x170.awebp',
+      avatar: 'title.png',
       url: 'https://juejin.cn/user/3844369926334215/posts',
+    },
+    {
+      nickname: 'PrivChat',
+      des: '基于 ZKP 与 TEE 的合规大模型隐私网关',
+      avatar: 'PrivChat.png',
+      url: 'https://privchating.vercel.app/',
+    },
+    {
+      nickname: 'DataVault',
+      des: '基于 PIR 的端侧加密 RAG 知识库',
+      avatar:
+        'DataVault.png',
+      url: 'https://privdatavault.vercel.app/',
+    },
+    {
+      nickname: 'AgentShield',
+      des: '基于区块链溯源的可信 AI Agent 执行网络',
+      avatar:
+        'AgentShield.png',
+      url: 'https://fed-mind.vercel.app/',
     },
   ],
 
