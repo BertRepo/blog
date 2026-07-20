@@ -32,15 +32,21 @@ tag:
 + 2023/10/21-2023/11/24：光大银行杭州分行，【信息科技实习生】
 + 2024/02/12-2024/04/05：南京翼起来网络科技有限公司，【前端开发】
 
-### 🔍开源项目
+### 🔍开源项目/工具
 
-...
+1. [PrivChat - 基于 ZKP 与 TEE 的合规大模型隐私网关](https://privchating.vercel.app/ "PrivChat - 基于 ZKP 与 TEE 的合规大模型隐私网关")
+2. [DataVault - 基于 PIR 的端侧加密 RAG 知识库](https://privdatavault.vercel.app/ "DataVault - 基于 PIR 的端侧加密 RAG 知识库")
+3. [AgentShield - 基于区块链溯源的可信 AI Agent 执行网络](https://fed-mind.vercel.app/ "AgentShield - 基于区块链溯源的可信 AI Agent 执行网络")
+4. [git-branch-notes - 基于 git 分支的笔记管理工具](https://github.com/BertRepo/git-branch-notes "git-branch-notes - 基于 git 分支的笔记管理工具")
+
 
 ## 💡兴趣方向
 
-+ 全栈开发
-
 + 隐私计算（联邦学习、差分隐私）
+
++ web3
+
++ 全栈开发
 
 + 分布式与微服务
 

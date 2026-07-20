@@ -56,13 +56,14 @@ tag:
 
 - [electron](./frame/electron.md)
 <!-- - [Node 学习](./frame/node.md) -->
-- [Flutter](./frame/flutter.md)<Badge text="暂未整理" type="info" />
-- [React Native](./frame/react_native.md)<Badge text="暂未整理" type="info" />
+<!-- - [Flutter](./frame/flutter.md)<Badge text="暂未整理" type="info" />
+- [React Native](./frame/react_native.md)<Badge text="暂未整理" type="info" /> -->
 
 
 ## 工程化
 
 - [说说工程化设计到的知识和工具](./project/work.md)
+- [vscode 架构与插件原理认知](./project/vscode.md)
 
 #### 模块化&&包管理
 
