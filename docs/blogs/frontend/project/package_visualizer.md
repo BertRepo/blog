@@ -1,4 +1,12 @@
-
+---
+title: 打包体积可视化分析：rollup-plugin-visualizer
+description: 💁 使用 rollup-plugin-visualizer 对 Vite/Rollup 打包产物进行体积可视化分析，快速定位产物体积来源与各依赖占比，辅助优化打包结果。
+author: Bert
+date: 2023-06-09
+tag:
+  - 前端
+  - 工程化
+---
 
 ### rollup-plugin-visualizer
 

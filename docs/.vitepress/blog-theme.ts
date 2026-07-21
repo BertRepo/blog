@@ -9,23 +9,24 @@
 import { getThemeConfig } from '@sugarat/theme/node'
 
 // 开启RSS支持（RSS配置）
-// import type { Theme } from '@sugarat/theme'
+import type { Theme } from '@sugarat/theme'
 
-// const baseUrl = 'https://sugarat.top'
-// const RSS: Theme.RSSOptions = {
-//   title: '粥里有勺糖',
-//   baseUrl,
-//   copyright: 'Copyright (c) 2018-present, 粥里有勺糖',
-//   description: '你的指尖,拥有改变世界的力量（大前端相关技术分享）',
-//   language: 'zh-cn',
-//   image: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-//   favicon: 'https://sugarat.top/favicon.ico',
-// }
+// RSS 插件会自动拼接 VitePress 的 base（/blog/），故 baseUrl 取站点根（不含 /blog）
+const baseUrl = 'https://bertrepo.github.io'
+const RSS: Theme.RSSOptions = {
+  title: "Bert 的全栈技术博客",
+  baseUrl,
+  copyright: 'Copyright (c) 2021-present, Bert',
+  description: '分享大前端、后端、计算机基础的原创技术文章与实战经验',
+  language: 'zh-cn',
+  image: 'https://bertrepo.github.io/blog/title.png',
+  favicon: 'https://bertrepo.github.io/blog/logo.jpg',
+}
 
 // 所有配置项，详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
   // 开启RSS支持
-  // RSS,
+  RSS,
 
   // 搜索
   // 默认开启pagefind离线的全文搜索支持（如使用其它的可以设置为false）
