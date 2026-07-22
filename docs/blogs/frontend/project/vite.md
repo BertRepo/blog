@@ -8,6 +8,8 @@ tag:
   - 工程化
 ---
 
+# Vite 原理认知
+
 ## 为什么传统 Bundle 模式必然走向线性劣化
 
 Webpack 这类 bundler-based 工具的工作模型是**同步的、全量的依赖图加工流水线**:dev server 启动时必须先把整张依赖图构造完毕,每个模块走完 resolve -> load -> transform -> 拼接到 chunk,才能产出第一个可被浏览器加载的 bundle。

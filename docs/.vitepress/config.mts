@@ -18,9 +18,9 @@ const base = '/blog/'
 // 站点线上地址（用于 canonical / sitemap / og:url / RSS 等绝对路径）
 const siteUrl = 'https://bertrepo.github.io/blog/'
 // 站点名称与描述（SEO 友好，含关键词）
-const siteTitle = "Bert 的全栈技术博客 | 前端·后端·计算机基础"
+const siteTitle = "Bert 的全栈技术博客"
 const siteDescription =
-  '分享大前端、后端、计算机基础的原创技术文章与实战经验，涵盖 JavaScript、Vue、Node.js、工程化、性能优化、面试手写题等。'
+  '分享大前端、后端、计算机基础、AI相关的原创技术文章与实战经验，涵盖 JavaScript、Vue、Node.js、工程化、性能优化、面试手写题等。'
 // 社交分享默认封面图（建议 1200×630，可替换 public 下同名图片）
 const defaultOgImage = siteUrl + 'title.png'
 

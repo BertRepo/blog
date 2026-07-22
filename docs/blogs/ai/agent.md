@@ -13,6 +13,8 @@ tag:
   - Agent
 ---
 
+# AI Agent 原理与架构深入解析
+
 ## 什么是 AI Agent:从问答到自主体
 
 LLM 单独使用时是一个"无状态文本函数":输入 prompt,输出 token,既不感知外部世界,也不产生持续行动。AI Agent 的本质是把 LLM 从"对话端点"升级为"推理核心",围绕它搭建感知(Perception)、规划(Planning)、行动(Action)、记忆(Memory)四件套,构成能自主完成多步目标的闭环系统。

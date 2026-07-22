@@ -10,6 +10,8 @@ tag:
   - 前端
 ---
 
+# npm包管理工具
+
 ## 依赖解析算法与 node_modules 结构演进
 
 Node.js 的模块解析是**纯文件系统驱动**的:`require('foo')` 时,Node 从当前文件所在目录起逐级向上查找 `node_modules/foo`,命中即返回。于是 `node_modules` 的物理结构直接决定哪些包能被 require 到、版本如何裁决。npm 历史上对这套结构做过一次根本性切换,这是看懂后续问题(幽灵依赖、版本冲突、lockfile)的钥匙。

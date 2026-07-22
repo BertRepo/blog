@@ -8,7 +8,9 @@ tag:
   - 前端
 ---
 
-设计模式不是面试默写题，而是"前人踩坑后沉淀下来的、可复用的权衡方案"。每一条模式都对应着一组**矛盾**——开闭与简洁、复用与耦合、灵活与性能——模式的本质是在这对矛盾里选一个工程上站得住的折中点。所以学模式要害不在于背 UML，而在于搞懂它**牺牲了什么、换来了什么、什么时候不该用**。
+# 设计模式全览：从 GoF 23 种到前端工程实践
+
+设计模式说到底是一套前人踩坑后沉淀下来的、可复用的权衡方案。每一条模式都对应着一组**矛盾**——开闭与简洁、复用与耦合、灵活与性能——它就是在这对矛盾里挑一个工程上站得住的折中点。所以学模式别去背 UML，重点是搞清楚它**牺牲了什么、换来了什么、什么时候不该用**。
 
 本文按 GoF（《设计模式》四人帮）的三大分类，把 23 种模式逐一过一遍，每种都落到 JavaScript 实现与前端工程的真实映射（React / Vue / DOM / 工程化工具链），并标注适用边界。最后一节保留发布-订阅模式的手写实现详解，它是观察者模式的工程化演进，也是前端事件体系的基石。
 
@@ -97,8 +99,6 @@ console.log(a === b); // true
 export const config = { apiBase: '/api', timeout: 5000 };
 ```
 
-<Badge text="前端映射" type="tip" />
-
 `window` / `document` / `localStorage` / `indexedDB` 这些浏览器内置对象都是单例。Vuex / Pinia 的 store 也是单例——同一份状态被多个组件共享，这正是 SPA 状态管理的根基。React 18 的 `useSyncExternalStore` 订阅的也是这类外部单例 store。
 
 ### 工厂方法模式（Factory Method）
@@ -144,8 +144,6 @@ const logger = createLogger('console');
 logger.log('hello');
 ```
 
-<Badge text="前端映射" type="tip" />
-
 `React.createElement(type, props, ...children)` 就是工厂方法——你传一个 type（字符串标签或函数组件），它造出对应的 ReactElement，调用方完全不接触 `new`。`document.createElement('div')` 同理，是 DOM 提供的工厂方法。
 
 ### 抽象工厂模式（Abstract Factory）
@@ -185,8 +183,6 @@ function createUI(themeName) {
 const ui = createUI('dark');
 console.log(ui.button.render(), ui.input.render());
 ```
-
-<Badge text="前端映射" type="tip" />
 
 跨端框架（如 Taro、uni-app）的"一套代码多端渲染"就是抽象工厂：同一份业务代码调用 `createButton()`，在 H5 端造出 `<button>`，在小程序端造出 `<view>`，在 RN 端造出 `<TouchableOpacity>`，保证每端的组件族是配套的。
 
@@ -237,8 +233,6 @@ const req = new RequestBuilder()
   .build();
 ```
 
-<Badge text="前端映射" type="tip" />
-
 `URLSearchParams`、`Headers`、`URL` 的链式 append 都是 builder 风格。前端构建工具（webpack/vite）的链式配置（`config.entry().add().end()`）也源自建造者思想——分步构造一份庞大的配置对象。
 
 ### 原型模式（Prototype）
@@ -263,8 +257,6 @@ alice.name = 'Alice';
 console.log(alice.greet()); // Hi, I'm Alice
 console.log(Object.getPrototypeOf(alice) === prototype); // true
 ```
-
-<Badge text="前端映射" type="tip" />
 
 JS 的 `class` 语法糖本质仍是原型：方法定义在 ` prototype` 上，实例通过原型链共享。`structuredClone`（深拷贝原型）、`Array.prototype.slice()`（数组浅克隆）、Vue2 的 `Object.create(Vue.prototype)` 都是原型思想的直接体现。理解这一点，才能理解为什么"在构造函数里 `this.fn = function(){}` 会每个实例存一份、而放到原型上只存一份"。
 
@@ -304,8 +296,6 @@ function renderMap(map) {
 
 renderMap(new BaiduAdapter(new BaiduMap()));
 ```
-
-<Badge text="前端映射" type="tip" />
 
 axios 的请求/响应拦截器转换器、`fetch` 上层封装成旧版 `XHR` 风格的兼容层、把后端下划线字段转成前端驼峰的 `camelize` 函数，都是适配器。React 里把 class 组件包成 hooks 可用的形式（`react-redux` 早期 `connect`），也是一种结构适配。
 
@@ -351,8 +341,6 @@ class SmsChannel {
 new UrgentMessage(new EmailChannel()).send('服务器宕机');
 new UrgentMessage(new SmsChannel()).send('服务器宕机');
 ```
-
-<Badge text="前端映射" type="tip" />
 
 React 把"组件树（抽象）"与"渲染器（实现）"拆开——同一份组件代码，`react-dom` 渲染成 DOM，`react-native` 渲染成原生组件，`react-three-fiber` 渲染成 WebGL，这就是桥接。控制反转的依赖注入容器也是这个思路：业务逻辑与具体实现通过接口桥接。
 
@@ -407,8 +395,6 @@ root.print();
 //     helper.js
 ```
 
-<Badge text="前端映射" type="tip" />
-
 DOM 就是教科书级的组合模式：`Node` 既是接口，`Element` 是容器，`Text` 是叶子，`appendChild` / `childNodes` 对二者一视同仁。React 的虚拟 DOM 树同理——`<div>` 容器与文本叶子统一为 ReactElement，diff 算法递归处理而不关心节点类型。
 
 ### 装饰器模式（Decorator）
@@ -444,8 +430,6 @@ const compute = withCache(withLog(function fib(n) {
 
 compute(10);
 ```
-
-<Badge text="前端映射" type="tip" />
 
 React 的高阶组件（HOC）`withRouter`、`connect`、`withTheme` 是装饰器模式在组件层的体现——包一层给原组件注入额外 props。Koa 的"洋葱模型"中间件、ES 装饰器语法（`@Component`、`@Injectable`，NestJS 大量使用）也是同一思想。注意装饰器与代理都"包"对象，区别在于：装饰器聚焦**加职责**，代理聚焦**控访问**。
 
@@ -486,8 +470,6 @@ class VideoCallFacade {
 new VideoCallFacade(ws).start(); // 调用方只需一行
 ```
 
-<Badge text="前端映射" type="tip" />
-
 `$.ajax` 把 `XMLHttpRequest` 的繁琐步骤收成一个函数；`fetch` 相对 `XHR` 也是一层外观；jQuery 整体就是 DOM 操作的外观。模块的 `index.js` 只导出一组聚合 API、隐藏内部多文件结构，也是外观模式的日常应用。
 
 ### 享元模式（Flyweight）
@@ -527,8 +509,6 @@ const items = [
 items.forEach((it) => getIcon(it.icon).draw(it.x, it.y));
 ```
 
-<Badge text="前端映射" type="tip" />
-
 V8 对短字符串做了 **string interning**（字符串驻留），相同字面量只存一份——这就是引擎层面的享元。前端虚拟列表（react-window / vue-virtual-scroller）只渲染可视区的少量 DOM、复用滚动时的节点，也是享元思想：用少量"共享对象"承载海量数据。事件委托本质也是享元——用一个父节点监听器代替万个子节点监听器。
 
 ### 代理模式（Proxy）
@@ -561,8 +541,6 @@ const user = createCachedValidator({ name: 'Bert', _pwd: '123' });
 console.log(user.name); // Bert
 user._pwd; // 抛错：无权访问
 ```
-
-<Badge text="前端映射" type="tip" />
 
 Vue 3 的响应式系统完全建立在 ES6 `Proxy` 上（替代了 Vue 2 的 `Object.defineProperty`），这是代理模式在前端最有分量的应用。图片懒加载（先占位、可见时才加载真图）、防抖/节流代理、HTTP 请求重试代理，都是代理的常见形态。
 
@@ -619,8 +597,6 @@ chain.setNext(new RateLimitHandler()).setNext(new BizHandler());
 console.log(chain.handle({ token: 'x', count: 5, action: '下单' })); // 处理业务: 下单
 ```
 
-<Badge text="前端映射" type="tip" />
-
 Express / Koa 的中间件、DOM 事件的捕获/冒泡（事件沿树传递直到被 `stopPropagation`）、Axios 的请求拦截器链、React 的 SyntheticEvent 池化分发，都是责任链。表单的多级校验（先非空、再格式、再查重）也是经典场景。
 
 ### 命令模式（Command）
@@ -669,8 +645,6 @@ console.log(list.data); // [1]
 history.pop().undo();
 console.log(list.data); // []
 ```
-
-<Badge text="前端映射" type="tip" />
 
 Redux 的 action `{ type, payload }` 就是命令对象——把"状态变更意图"序列化成数据，因此可日志、可回放、可时间旅行。富文本编辑器（Slate、ProseMirror）的 operation 栈、拖拽的撤销栈，都是命令模式。
 
@@ -725,8 +699,6 @@ const rule = new Or(new Var('isVip'), new And(new Var('adult'), new Var('isMembe
 console.log(rule.interpret(new Context({ isVip: false, adult: true, isMember: true }))); // true
 ```
 
-<Badge text="前端映射" type="tip" />
-
 Vue 的模板编译器把模板字符串解析成 AST 再生成渲染函数、Babel 把源码解析成 AST 再遍历变换、CSS 选择器引擎（如 Sizzle）解析 `div > .active:not(:first-child)`，都包含解释器模式。低代码平台的规则配置器、表单联动表达式也是它的轻量应用。
 
 ### 迭代器模式（Iterator）
@@ -764,8 +736,6 @@ function* rangeGen(start, end) {
   for (let i = start; i <= end; i++) yield i;
 }
 ```
-
-<Badge text="前端映射" type="tip" />
 
 `for...of`、展开运算符 `...`、解构、`Array.from`、`Promise.all` 都消费可迭代对象。Babel 把 `for...of` 降级编译时生成的 `_createForOfIteratorHelper`，就是手写的迭代器适配。React 18 的 `use()` hook 也能消费 thenable 与可迭代上下文。
 
@@ -814,8 +784,6 @@ room.register(bob);
 alice.send('hi', bob); // Bob 收到来自 Alice: hi
 // 用户之间互不持有引用，全通过 room 中转
 ```
-
-<Badge text="前端映射" type="tip" />
 
 Vue 的 EventBus（`$bus`）、Redux 的 store（所有组件通过它通信而非直接互调）、前端微内核架构里的"事件总线"、甚至 `window` 作为全局消息中介，都是中介者。注意：中介者本身可能变成"上帝对象"——所有逻辑堆进去会过于臃肿，这时应考虑拆分职责或回归观察者。
 
@@ -868,8 +836,6 @@ editor.restore(history.pop()); // 撤销
 console.log(editor.content); // Hello
 ```
 
-<Badge text="前端映射" type="tip" />
-
 Redux 的**时间旅行调试**（Redux DevTools）是备忘录的巅峰应用——每个 action 产生一个 state 快照，可在任意历史快照间跳转。React 的 `useMemo`/`useCallback` 名字虽像，但那是缓存计算结果，不是备忘录模式；真正对应的是富文本/画板的撤销栈与游戏存档。
 
 ### 观察者模式（Observer）
@@ -910,8 +876,6 @@ subject.subscribe(o1);
 subject.subscribe(o2);
 subject.notify('数据更新'); // 视图A/视图B 都收到
 ```
-
-<Badge text="前端映射" type="tip" />
 
 Vue 2 的响应式（`dep.addSub` / `dep.notify`）、`MutationObserver` / `ResizeObserver` / `IntersectionObserver`、Node 的 `EventEmitter`，都是观察者。它与发布-订阅的区别就一句话：**观察者 = 目标直接通知观察者；发布-订阅 = 目标 → 调度中心 → 订阅者**。后者文末有完整手写实现。
 
@@ -956,8 +920,6 @@ v.add('', 'required');
 v.add('ab', 'minLength', 6);
 console.log(v.validate()); // 不能为空
 ```
-
-<Badge text="前端映射" type="tip" />
 
 `Array.prototype.sort(compareFn)` 的比较函数就是策略——把"怎么比"外置成可替换的策略。React 的 `reducer` + `action.type` 分发、支付页根据 `payMethod` 切换不同支付 SDK、不同角色走不同权限策略，都是策略模式。它的反面是"用对象字面量映射"——很多时候一个 `{ key: fn }` 就够了，不必为"显出架构感"套一堆类。
 
@@ -1028,8 +990,6 @@ order.pay();  // 已支付，等待发货
 order.ship(); // 已发货
 ```
 
-<Badge text="前端映射" type="tip" />
-
 XState / Robot 这类前端状态机库是状态模式的工程化。Promise 的 `pending → fulfilled/rejected` 流转、Promise 不可逆的状态约束，本质也是状态模式。复杂表单的多步向导（填写→确认→提交→完成）、视频播放器（播放/暂停/缓冲/结束）都适合用它把 `if (status === ...)` 收敛掉。
 
 ### 模板方法模式（Template Method）
@@ -1073,8 +1033,6 @@ class CsvPipeline extends DataPipeline {
   }
 }
 ```
-
-<Badge text="前端映射" type="tip" />
 
 React 的类组件生命周期就是模板方法——框架定义了 `componentDidMount` / `render` 等钩子的调用时机，你只填实现。Vue 的 `createApp` 插件机制、Vite/Rollup 的插件钩子（`buildStart` / `transform` / `generateBundle`）也是模板方法：宿主定流程、插件填步骤。注意模板方法靠继承，组合优于继承时改用策略更合适。
 
@@ -1129,8 +1087,6 @@ const ast = new AddNode(new NumberNode(1), new NumberNode(2));
 console.log(ast.accept(new EvalVisitor()));  // 3
 console.log(ast.accept(new PrintVisitor())); // (1+2)
 ```
-
-<Badge text="前端映射" type="tip" />
 
 Babel 插件、ESLint 规则、AST 工具（recast、jscodeshift）全是访问者模式——AST 节点结构稳定（标准定义），但"要做什么变换"千变万化，于是用 visitor 遍历节点。`@babel/traverse` 的 `enter(path) {}` / `exit(path) {}` 就是访问者的接入点。理解它，是看懂前端编译工具链的钥匙。
 

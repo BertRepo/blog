@@ -8,6 +8,8 @@ tag:
   - 工程化
 ---
 
+# 打包体积可视化分析：rollup-plugin-visualizer
+
 ## rollup-plugin-visualizer 的工作原理：从 OutputBundle 到可视化
 
 `rollup-plugin-visualizer` 的本质是一个 Rollup 插件。由于 Vite 的生产构建底层就是 Rollup，所以它在 Vite 项目中可以零适配接入。理解它的原理，关键在于理解它**数据的来源**——Rollup 在 `generateBundle` 钩子里暴露的 `OutputBundle`。

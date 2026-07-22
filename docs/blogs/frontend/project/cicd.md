@@ -14,6 +14,8 @@ category:
   - 工程化
 ---
 
+# CI/CD
+
 ## GitHub Actions 执行模型:从 workflow YAML 到 runner 进程
 
 GitHub Actions 的执行单元不是一条"流水线",而是三层嵌套的调度结构:**workflow -> job -> step**。理解这三层的调度规则与隔离边界,是看懂一切 YAML 行为、排查一切"本地好的 CI 挂"问题的前提。本文跳过 CI/CD 的概念铺垫,直接从这套执行模型的内核讲起。

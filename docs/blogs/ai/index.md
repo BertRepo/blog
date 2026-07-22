@@ -18,5 +18,6 @@ tag:
 - [LLM 大语言模型原理深入解析](./llm.md)<Badge text="深入原理" type="tip" />
 - [RAG 检索增强生成原理与工程实践](./rag.md)<Badge text="深入原理" type="tip" />
 - [AI Agent 原理与架构深入解析](./agent.md)<Badge text="深入原理" type="tip" />
+- [世界模型与 VLA(视觉-语言-动作)模型详解](./vla.md)<Badge text="具身智能" type="tip" />
 
 持续更新中，敬请期待更多 AI 相关文章……
