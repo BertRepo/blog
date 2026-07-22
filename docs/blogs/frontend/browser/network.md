@@ -430,8 +430,8 @@ AJAX 就是指在web应用程序中异步向服务器发送请求。
 async function loadheroes() {
    // 请求英雄数据
    const resp = await fetch('https://study.duyiedu.com/api/herolist');
-   // 但是此时响应体是ReadableStrem
-   console.log(resp.body); // 结果就为ReadableStrem，因为此时，响应体并没有发送过来呢，仅接收到了响应头
+   // 但是此时响应体是ReadableStream
+   console.log(resp.body); // 结果就为ReadableStream，因为此时，响应体并没有发送过来呢，仅接收到了响应头
    // 因此，需要再次等待响应体
    const body = await resp.text();
    console.log(body);
@@ -444,7 +444,7 @@ async function loadheroes() {
    const body2 = await resp.blob();
 
    // 转成 定型数组
-   const body2 = await resp.arrayBuffer();   // 定型数组：只读的、空间连续的、定长字节数组
+   const body3 = await resp.arrayBuffer();   // 定型数组：只读的、空间连续的、定长字节数组
 
    const heroes = body.data;
    document.querySelector('.list').innerHTML = heroes.map((h) => `
@@ -467,7 +467,7 @@ loadheroes()
 2. 打开命令行工具，设置淘宝源
 
    ```shell
-   npm config set registry https://registry.npm.taobao.org
+   npm config set registry https://registry.npmmirror.com
    ```
 
 **安装依赖**

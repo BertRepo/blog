@@ -2,7 +2,7 @@
 description: 💁 本文主要讲述桌面端框架--Electron。
 title: 桌面端框架--Electron
 author: Bert
-date: 2024-09-0-6
+date: 2024-09-06
 hidden: false
 comment: true
 sticky: 108
@@ -22,7 +22,7 @@ category:
 
 ## 多进程模型
 
-Electron 采用了多进程架构（继承自Chromium），包含<br>主进程</br>和<br>渲染器进程</br>，类似于谷歌浏览器的浏览器进程和渲染器进程，避免了使用单个进程处理所有的功能，增加了一定的开销，但是提高了Electron应用的稳定性。
+Electron 采用了多进程架构（继承自Chromium），包含<strong>主进程</strong>和<strong>渲染器进程</strong>，类似于谷歌浏览器的浏览器进程和渲染器进程，避免了使用单个进程处理所有的功能，增加了一定的开销，但是提高了Electron应用的稳定性。
 
 如果使用单一进程，那么可能就会存在渲染任务挂起、窗口崩溃影响整体的等等问题。
 

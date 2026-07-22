@@ -12,8 +12,8 @@ tag:
 
 ## 设计模式
 
-- [设计模式](./design.md)<Badge text="暂未整理" type="info" />
+- [设计模式](./design.md)
 
 ## 数据结构
 
-- [数据结构](./data.md)<Badge text="暂未整理" type="info" />
+- [数据结构](./data.md)

@@ -50,7 +50,7 @@ tag:
 
 #### react
 
-- [React](./frame/react.md) <Badge text="暂未整理" type="info" />
+- [React](./frame/react.md)
 
 #### 跨平台
 
@@ -67,14 +67,14 @@ tag:
 
 #### 模块化&&包管理
 
-- [npm](./project/npm.md)<Badge text="暂未整理" type="info" />
+- [npm](./project/npm.md)
 - [pnpm](./project/pnpm.md)
 
 #### 打包
 
 - [webpack 原理认知](./project/webpack.md)
-- [vite 原理认知](./project/vite.md)<Badge text="暂未整理" type="info" />
-- [打包可视化分析](./project/package_visualizer.md)<Badge text="整理中" type="warning" />
+- [vite 原理认知](./project/vite.md)
+- [打包可视化分析](./project/package_visualizer.md)
 
 #### 性能/代码优化
 

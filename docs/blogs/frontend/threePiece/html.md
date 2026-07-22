@@ -26,7 +26,7 @@ category:
 
 空格：文本分隔符
 ```html
-html编码 &; 代表一个空格，中间填充内容 &nbsp;
+html编码 &nbsp; 代表一个空格，实体格式为 &内容;（中间填充内容）
 ```
 
 
@@ -63,8 +63,8 @@ html编码 &; 代表一个空格，中间填充内容 &nbsp;
 
 <!-- form元素自带enter后发起请求等功能，因此，当不想使用默认的发送请求功能时，可以在script中这样写： -->
 <script>
-  const form = document.querySeletor('form');
-  form.onSubmit = (e) => {
+  const form = document.querySelector('form');
+  form.onsubmit = (e) => {
     e.preventDefault(); // 阻止默认事件
     console.log('submit');
   }

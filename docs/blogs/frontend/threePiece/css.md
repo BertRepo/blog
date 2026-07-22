@@ -142,7 +142,7 @@ div.demo {
 
 .wrapper > .content > em {}
 
-div.wrapper > div[class="content"] > div#only.box {}
+div.wrapper > div[class="content"] > em#only.box {}
 
 ## CSS中选择器和样式等优先级/权重比较
 

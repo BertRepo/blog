@@ -122,6 +122,3 @@ self["webpackChunk_myApp"].push([
 4. runtime 捕获到 push 调用，将新模块注册到模块缓存中。
 
 5. Promise resolve，业务代码继续执行。
-
-
-## 

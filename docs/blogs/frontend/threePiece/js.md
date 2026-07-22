@@ -20,28 +20,28 @@ category:
 >
 > 关于另外两个部分，点击我的其他博客：[DOM](./dom.md)和[BOM](./window.md)。
 
-* [如何在 HTML 中引入 JS](##如何在html中引入js)
-* [数据类型](##数据类型)
-* [逻辑运算符](##逻辑运算符)
-* [类型转换](##类型转换)
-* [JS 运行三部曲](##js运行三部曲)
-* [作用域和作用域链](##作用域和作用域链)
-* [闭包](##闭包)
-* [立即执行函数](##立即执行函数)
-* [对象（包括构造函数和包装类）](##对象)
-* [原型](##原型)
-* [原型链](##原型链)
-* [JS 中小数点的精度问题](##JS中小数点的精度问题)
-* [call / apply / bind](##call/apply/bind)
-* [继承（extend）（四种形式/写法）](##继承（extend）)
-* [命名空间](##命名空间)
-* [枚举（扩展：hasOwnProperty、in、instanceof以及判断数据类型的方法）](##枚举)
-* [this](##this)
-* [arguments（arguments.callee、func.caller）](##arguments)
-* [浅拷贝和深拷贝](##浅拷贝和深拷贝)
-* [数组](##数组)
-* [类数组](##类数组)
-* [try{} catch(e) {}](##try{}catch(e){})
+* [如何在 HTML 中引入 JS](#如何在html中引入js)
+* [数据类型](#数据类型)
+* [逻辑运算符](#逻辑运算符)
+* [类型转换](#类型转换)
+* [JS 运行三部曲](#js运行三部曲)
+* [作用域和作用域链](#作用域和作用域链)
+* [闭包](#闭包)
+* [立即执行函数](#立即执行函数)
+* [对象（包括构造函数和包装类）](#对象)
+* [原型](#原型)
+* [原型链](#原型链)
+* [JS 中小数点的精度问题](#JS中小数点的精度问题)
+* [call / apply / bind](#call/apply/bind)
+* [继承（extend）（四种形式/写法）](#继承（extend）)
+* [命名空间](#命名空间)
+* [枚举（扩展：hasOwnProperty、in、instanceof以及判断数据类型的方法）](#枚举)
+* [this](#this)
+* [arguments（arguments.callee、func.caller）](#arguments)
+* [浅拷贝和深拷贝](#浅拷贝和深拷贝)
+* [数组](#数组)
+* [类数组](#类数组)
+* [try{} catch(e) {}](#try{}catch(e){})
 
 
 
@@ -111,7 +111,7 @@ a自动被赋值为undefined
 
 （2）总有一个对象不再被任何变量引用时，才释放。
 
-> nul == undefined 结果为 true
+> null == undefined 结果为 true
 
 ```javascript
 var a = 123;
@@ -125,7 +125,7 @@ b = c;
 
 // 方法2:
 a = a + b;
-b = a - c;
+b = a - b;
 a = a - b;
 ```
 
@@ -278,7 +278,7 @@ _预编译四部曲（过程）_
 （2）创建词法环境组件
 
     词法环境是一种有标识符——变量映射的数据结构，标识符是指变量/函数名，变量是对实际对象或原始数据的引用。
-    词法环境的内部有两个组件：加粗样式：环境记录器:用来储存变量个函数声明的实际位置外部环境的引用：可以访问父级作用域
+    词法环境的内部有两个组件：环境记录器（用来储存变量和函数声明的实际位置）、外部环境的引用（可以访问父级作用域）
 
 （3）创建变量环境组件
 
@@ -363,7 +363,7 @@ function test() {}
 **作用域链：[[scope]]中所存储的执行器上下文对象的集合，这个集合呈链式链接，我们把这种链式链接叫做作用域链。**
 
 **运行期上下文：当函数执行的前一刻，会创建一个成为*执行期上下文*的内部对象。**
-**一个执行期上下文定义了一盒函数执行是的化境，函数每次执行时对应的执行上下文都是独一无二的，**
+**一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文都是独一无二的，**
 **所以多次调用一个函数会导致创建多个执行上下文，当函数执行完毕，他所产生的执行上下文被销毁。**
 
 > **执行上下文**是 JavaScript 中的一个重要概念，它是一段代码被执行时的环境。它包含了当前执行环境中的所有信息，如变量、函数声明、参数（arguments）、作用域链，以及 this 等信息。
@@ -592,7 +592,7 @@ function Person(name, wife) {
   this.wife = wife;
 
   this.divorce = function () {
-    this.wife = prepare.wife;
+    this.wife = prepareWife;
   };
 
   this.changePrepareWife = function (target) {
@@ -600,7 +600,7 @@ function Person(name, wife) {
   };
 
   this.sayPrepareWife = function () {
-    console.log(preparewife);
+    console.log(prepareWife);
   };
 }
 
@@ -1094,7 +1094,7 @@ test3;
 
 ```javascript
 function Father() {}
-fuction son() {}
+function son() {}
 
 // 实现共享原型的这种继承
 function inherit(Target, Origin) {
@@ -1144,7 +1144,7 @@ function inherit(Target, Origin) {
 }
 Father.prototype.sex = "male";
 function Father() {}
-fuction son() {}
+function son() {}
 
 inherit(Son, Father);
 var son = new Son();
@@ -1162,7 +1162,7 @@ console.log(father.name);    // undefined
 // 圣杯模式 还有以下这种写法 建议写这种写法
 var inherit = (function () {    // 立即执行函数
     var F = function () {}; // F 形成闭包，形成私有化变量
-    return funtion (Target, Origin) {   // 闭包
+    return function (Target, Origin) {   // 闭包
         F.prototype = Origin.prototype;
         Target.prototype = new F();
         Target.prototype.constructor = Target;
@@ -1268,7 +1268,7 @@ for (var key in person) {
 var obj = {};
 console.log(obj.constructor);   // 方法一
 ƒ Object() { [native code] }    // 方法一 结果
-obj instanceof array;    // 方法二
+obj instanceof Array;    // 方法二
 false // 方法二 结果
 Object.prototype.toString.call({});     // 方法三
 '[object Object]'       // 方法三结果
@@ -1276,7 +1276,7 @@ Object.prototype.toString.call({});     // 方法三
 var arr = [];
 console.log(arr.constructor);   // 方法一
 ƒ Array() { [native code] }     // 方法一 结果
-arr instanceof array;    // 方法二
+arr instanceof Array;    // 方法二
 true // 方法二 结果
 Object.prototype.toString.call([]);     // 方法三
 '[object Array]'        // 方法三结果
@@ -1422,7 +1422,7 @@ function deepClone(origin, target) {
 
   for (var prop in origin) {
     if (origin.hasOwnProperty(prop)) {
-      if (origin[prop] !== "null" && typeof origin[prop] == "object") {
+      if (origin[prop] !== null && typeof origin[prop] == "object") {
         // if (toStr.call(origin[prop]) == arrStr) {
         //   target[prop] = [];
         // } else {
@@ -1432,7 +1432,7 @@ function deepClone(origin, target) {
         target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
         deepClone(origin[prop], target[prop]);
       } else {
-        target[prop] = origin[top];
+        target[prop] = origin[prop];
       }
     }
   }
@@ -1554,7 +1554,7 @@ arr.sort(function (a, b) {
 ```
 > 注意！！！
 > 
-> sort方法使用的是**冒泡排序算法**
+> sort方法内部使用的排序算法由各浏览器引擎自行实现（如 V8 早期使用快速排序，现已改用 TimSort），并非固定某种算法
 >
 > 1. 必须写两个形参
 > 
@@ -1604,7 +1604,7 @@ Array.prototype.splice = function (pos, len, target) {
 var arr = [1, 2, 3];
 var arr1 = [4, 5];
 
-arr.contact(arr1);
+arr.concat(arr1);
 // 结果
 [1, 2, 3, 4, 5]
 ```
@@ -1621,7 +1621,7 @@ arr.contact(arr1);
 // slice 截取，传入两个参数
 // slice(从该位开始截取，截取到该位)
 var arr = [1, 2, 3];
-var newArr = arr.slice(1，2);  // 从索引 1 开始截取，至索引 2 结束，但是不包括 2
+var newArr = arr.slice(1, 2);  // 从索引 1 开始截取，至索引 2 结束，但是不包括 2
 // 结果
 [2]
 

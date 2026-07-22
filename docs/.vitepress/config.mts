@@ -194,6 +194,10 @@ export default defineConfig({
         text: "计算机综合",
         link: "/blogs/csAll/index",
       },
+      {
+        text: "🤖AI 专栏",
+        link: "/blogs/ai/index",
+      },
       { text: '关于我', link: '/intro' }
     ],
     socialLinks: [

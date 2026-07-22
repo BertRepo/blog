@@ -85,7 +85,7 @@ document.documentElement.scrollTop // 等同于window.document.documentElement.s
 ![4](../image/front_simple/4.png)
 
 上图中右下角可以看见，location是当前页面的地址（包含当前主机域名、当前页面的路径和文件名、所使用的web协议、端口等）；
-length，控制台输出的值为6，表明当前窗口的框架上数量为6。
+length，控制台输出的值为6，表明当前窗口的框架数量为6。
 
 > 另外，属性frames、self、window三者等价，返回的是对当前窗口的引用。
 
@@ -123,8 +123,8 @@ length，控制台输出的值为6，表明当前窗口的框架上数量为6。
 | userAgent	| 返回由客户机发送服务器的user-agent头部的值 |
 | geolocation	| 返回浏览器的地理位置信息 |
 | language	| 返回浏览器使用的语言 |
-| onLine |	返回浏览器是否在线，在线返回ture，否则返回false |
-| product |	对文档对象的只读引用 |
+| onLine |	返回浏览器是否在线，在线返回true，否则返回false |
+| product |	返回浏览器的产品名称 |
 
 ### 方法
 | 属性名称 | 方法含义或作用 | 

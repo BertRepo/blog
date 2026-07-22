@@ -16,19 +16,19 @@ tag:
 
 ----------------------------------------------------------------
 手写题：
-* [手写call](##手写call)
-* [手写apply](##手写apply)
-* [手写bind](##手写bind)
-* [手写new](##手写new)
-* [手写Promise](##手写Promise)
-* [手写async/await](##手写async/await)
-* [手写React-fiber](##手写React-fiber)
-* [手写Vue3 composition](##手写Vue3的composition)
+* [手写call](#手写call)
+* [手写apply](#手写apply)
+* [手写bind](#手写bind)
+* [手写new](#手写new)
+* [手写Promise](#手写Promise)
+* [手写async/await](#手写async/await)
+* [手写React-fiber](#手写React-fiber)
+* [手写Vue3 composition](#手写Vue3的composition)
 ----------------------------------------------------------------
 面试编程题：
-* [proxy数据绑定](##proxy数据绑定)
-* [手写apply](##手写apply)
-* [手写bind](##手写bind)
+* [proxy数据绑定](#proxy数据绑定)
+* [手写apply](#手写apply)
+* [手写bind](#手写bind)
 ----------------------------------------------------------------
 我们得清楚本质上，call()、apply()、bind()函数其实就是在函数调用时改变 this 指向。他们的区别，在于传递参数的形式和返回值。
 

@@ -26,7 +26,7 @@ Server ||--o{ Sender : sent
 Server }|..|{ Receiver : receive
 ```
 
-发送方Sender把消息发送到了中间服务器，中间服务器在传递给接收方Receiver。但是实现了这种，我相信其实你也能会真的实现P2P。
+发送方Sender把消息发送到了中间服务器，中间服务器再传递给接收方Receiver。但是实现了这种，我相信其实你也能会真的实现P2P。
 
 ## 常见的消息通知:
 
@@ -74,7 +74,7 @@ Server }|..|{ Receiver : receive
 ### 包介绍
 <p>nodejs不像其他的服务器，对于不同的连接，不支持进程和线程操作，写这类功能的时候就需要找更合适的包。</p>
 <p>使用WebSocket协议的包有好多，这里我先讲一种常用的包是nodejs-websocket包，网评说使用较为繁琐，这里就没使用。它需要依赖于底层的C++,Python的环境，支持以node做客户端的访问。当然了，这里我一定要说一下，nodejs-websocket是纯粹的使用了WebSocket协议，因此使用时需要写心跳检测，检测用户是否在线等情况。</p>
-<p>我采用的是socket.io，它使用起来较为简单，功能强大，支持集成websocket服务器端和Express3框架与一身。它可以不需要心跳检测，不过这也是个相对说法，因为它结合封装了轮询机制和实时通信，当websocket连接断掉时，它会不停的尝试连接，耗费资源。当然了，还有其他库，比如node-websocket-server（不需要了解，直接放弃）。</p>
+<p>我采用的是socket.io，它使用起来较为简单，功能强大，支持集成websocket服务器端和Express3框架于一身。它可以不需要心跳检测，不过这也是个相对说法，因为它结合封装了轮询机制和实时通信，当websocket连接断掉时，它会不停的尝试连接，耗费资源。当然了，还有其他库，比如node-websocket-server（不需要了解，直接放弃）。</p>
 
 ### 技术实现
 在实现前，考虑到发送消息时，向指定用户发送WebSocket消息，但对方可能不在线，这种情况，我这么处理：
@@ -82,7 +82,7 @@ Server }|..|{ Receiver : receive
 -   否则将消息存储到redis，等用户登陆上线后主动推送未读消息。
 
 socket.io的客户端和服务端都有两个函数 on()、emit()，核心函数，可轻松实现客户端与服务端的双向通信。
--   emit：触发一个事件，第一个参数是事件名称，第二个参数是要发送到另一端的数据，第三个参数是一个回调函数用来确认对方的接收信息（也可以说时回执），可忽略。
+-   emit：触发一个事件，第一个参数是事件名称，第二个参数是要发送到另一端的数据，第三个参数是一个回调函数用来确认对方的接收信息（也可以说是回执），可忽略。
     - socket.emit 信息传输对象为当前 socket 对应的 client ，各个client socket 相互不影响。
     - socket.broadcast.emit 信息传输对象为所有 client ，排除当前socket 对应的 client。
     - io.sockets.emit信息传输对象为所有 client。
@@ -188,9 +188,9 @@ todo事件则是判断用户在线后，实时传递消息，需要注意使用 
     
 disconnect事件则是在客户端用户登出或刷新页面等认为是断开WebSocket连接时，在维护的socket连接组中删除该用户的WebSocket连接信息。
 
-当然，在连接到connection事件前，有一个中间件io.use((socket, next) => {}，是判断对方的连接是否有效（带有cookie的主动连接）。
+当然，在连接到connection事件前，有一个中间件io.use((socket, next) => {})，是判断对方的连接是否有效（带有cookie的主动连接）。
 
-然后，在/bin/www .js中引入io：
+然后，在/bin/www.js中引入io：
 
 ```js
 #!/usr/bin/env node
@@ -225,6 +225,6 @@ socketIndex.init(io);
 
 #### 客户端
 
-首先创建一个socket对象，io() 的第一个参数是链接服务器的 URL，默认情况下是 window.location（需要修改成服务端的URL，包括对应的模块或权限对应的指定路径，path参数）。
+首先创建一个socket对象，io() 的第一个参数是连接服务器的 URL，默认情况下是 window.location（需要修改成服务端的URL，包括对应的模块或权限对应的指定路径，path参数）。
 
 <p>更不动了，待更！</p>

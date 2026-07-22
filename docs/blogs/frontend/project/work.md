@@ -27,7 +27,7 @@ category:
 + AMD
 + CMD
 + UMD
-+ Ecmascript Module，简称ESM
++ ECMAScript Module，简称ESM
 
 尽管方案不同，但是他们的目标是一致的，都是为了在分解时隐藏内部实现，避免全局污染；在聚合时，明确表达依赖关系，避免依赖混乱。
 前四个标准为民间社区研发的标准，ESM为官方标准。由于历史原因，CJS现在依旧用的很多，而其他三个社区标准则渐渐没入历史长河中。ESM标准用的也很多，很多使用CJS的库也正往ESM转。
@@ -84,14 +84,14 @@ npm（包的属性、registry、cli）
 1. 兼容性
 
 存在两类问题：
-  + API兼容：ployfill（垫片），最核心的就是core-js，但是它并不能解决100%的问题，比如说一些跟环境有关的问题，比如浏览器中的一些原生能力。
+  + API兼容：polyfill（垫片），最核心的就是core-js，但是它并不能解决100%的问题，比如说一些跟环境有关的问题，比如浏览器中的一些原生能力。
   + 语法兼容：语法转换器 syntax transformer（runtime，也就是运行时支持各种语法）。每个语法都需要一个工具，而不是一个工具解决了所有语法关键词的兼容问题。
 
 2. 语法增强
 
     比如TypeScript，使用tsc（转换工具）转换成js
 
-因此，需要一个工具来将上面的这些工具串起来：**代码集成转换工具**，目前应用最多的是 babel，它会将你的代码转换成抽象语法树AST，然后在转换成代码。但是在转换成代码的过程中，你可以使用一系列插件去影响转换结果。
+因此，需要一个工具来将上面的这些工具串起来：**代码集成转换工具**，目前应用最多的是 babel，它会将你的代码转换成抽象语法树AST，然后再转换成代码。但是在转换成代码的过程中，你可以使用一系列插件去影响转换结果。
 
 @babel/core、@babel/cli、@babel/preset-env（预设了一堆插件）
 
@@ -101,7 +101,7 @@ CSS语言存在的问题
 1. 语法缺失（循环、判断、拼接）
 2. 功能缺失（颜色函数、数学函数、自定义函数）
 
-sass/less/styls ---- css预编译器 ---- CSS语言 ---- 厂商前缀（autoprefixer）、代码压缩（cssnano）、代码剪枝（purgecss）、类名冲突（css module），这些工具称为后处理器 ---- CSS
+sass/less/stylus ---- css预编译器 ---- CSS语言 ---- 厂商前缀（autoprefixer）、代码压缩（cssnano）、代码剪枝（purgecss）、类名冲突（css module），这些工具称为后处理器 ---- CSS
 
 ![alt text](../image/work/work1.png)
 
@@ -138,7 +138,7 @@ sass/less/styls ---- css预编译器 ---- CSS语言 ---- 厂商前缀（autopref
 >
 >2. 开发服务器 webpack server
 >
->其中，源码变化，刷新页面，这样的过程涉及到 webscoket 和 HMR 热更新。
+>其中，源码变化，刷新页面，这样的过程涉及到 websocket 和 HMR 热更新。
 >
 >3. 文件指纹 哈希
 >

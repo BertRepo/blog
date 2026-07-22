@@ -220,28 +220,6 @@ services:
     # 将默认端口7054定向到8054
     ports:
       - "8054:7054"
-    # 启动version: "2"
-# 创建的网络名称
-networks:
-  test:
-# 创建的节点、数据库、终端等服务
-services:
-	# 组织org2的ca服务
-  ca-org2:
-  	# 使用到的镜像
-    image: hyperledger/fabric-ca
-    # 设置该服务的ca服务端、名称id、根证书和签名、TLS安全通信的配置
-    environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca.org2.example.com
-      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/priv_sk
-      - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-tls/tlsca.org2.example.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-tls/priv_sk
-    # 将默认端口7054定向到8054
-    ports:
-      - "8054:7054"
     # 启动fabric-ca-server服务端
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
@@ -458,14 +436,6 @@ services:
       - "peer1.org1.example.com:172.18.45.155"
       - "peer0.org2.example.com:172.18.45.190"
       - "peer1.org2.example.com:172.18.45.190"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
-    volumes:
-      - ./crypto-config/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
-      - ./crypto-config/peerOrganizations/org2.example.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
-    container_name: ca.org2.example.com
-    hostname: ca.org2.example.com
-    networks:
-      - test
 ```
 
 ***

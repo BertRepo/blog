@@ -200,7 +200,7 @@ app.whenReady().then(()=>{
 })
 
 // 应用关闭退出时记得清理
-app.on('colse', async () => {
+app.on('close', async () => {
   // 省略其他code啦
   if (worker) {
     try {

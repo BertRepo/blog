@@ -18,7 +18,7 @@ category:
 
 <a name="mhF0B"></a>
 ## 什么是ES6+
-2015 年 6 月正式发布了ECMAScript 6.0语法正式发布了, 简称"ES6", 他是对原有javascript语法的扩充, 每年都有新的语法扩充进来, 在本文中，这里把后续新增的语法统称"ES6+"语法。
+2015 年 6 月正式发布了ECMAScript 6.0语法, 简称"ES6", 他是对原有javascript语法的扩充, 每年都有新的语法扩充进来, 在本文中，这里把后续新增的语法统称"ES6+"语法。
 <a name="YAo45"></a>
 ## 知识点思维导图
 思维导图图片来自菜鸟教程，仅作知识分享之用，无其他用处。
@@ -191,16 +191,16 @@ console.log(obj) // {abc123:1};
 ```
 
 <a name="U9KYR"></a>
-## 链判断运算符(?)
-实现对"**?**"左边的表达式是否为null或者undefined的判断, 如果是立即停止判断, 返回undefined或null.
+## 链判断运算符(?.)
+实现对"**?.**"左边的表达式是否为null或者undefined的判断, 如果是立即停止判断, 返回undefined.
 ```javascript
 const firstName = (message
   && message.body
   && message.body.user
-  && message.body.user.firstName) ｜｜ “default”;
+  && message.body.user.firstName) || "default";
 
 // 简写
-const fristName = message?.body?.user?.firstName ｜｜ “default”;
+const firstName = message?.body?.user?.firstName || "default";
 ```
 
 ```javascript
@@ -212,7 +212,7 @@ const foo = {
 
 const a = foo.value?foo.value.a:"6789"
 // 简写
-const a = foo.value?.a:"6789"
+const a = foo.value?.a ?? "6789"
 
 console.log(a)
 
@@ -224,7 +224,7 @@ console.log(a)
 ```javascript
 let test = {
   say() {
-    console.info(“Hello,world!”)
+    console.info("Hello,world!")
   }
 }
 // 判断对象是否有这样一个函数，如果有就执行，没有就返回undefined
@@ -334,7 +334,7 @@ export default {
 ## import 
 导入模块
 ```javascript
-import {a,x,abc},dd from './xyz.js';
+import dd, {a, x, abc} from './xyz.js';
 dd // {b:'2',c:3}
 ```
 <a name="QXSpf"></a>

@@ -43,7 +43,7 @@ git-bn list --remote
 git-bn list -l
 git-bn list --local
 ```
-# 设置备注并同步到远程（默认行为）
+### 设置备注并同步到远程（默认行为）
 ```bash
 git-bn set "正在开发新功能" ## 为当前分支设置备注
 git-bn set -b feature-branch "正在开发新功能"
@@ -51,7 +51,7 @@ git-bn set --branch feature-branch "正在开发新功能"
 ```
 如果设置备注时没有指定分支名称，默认会为当前所在分支设置备注。
 
-# 设置备注但不同步到远程
+### 设置备注但不同步到远程
 ```bash
 git-bn set -b feature-branch "正在开发新功能" -n
 git-bn set --branch feature-branch "正在开发新功能" --no-sync

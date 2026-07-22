@@ -262,7 +262,7 @@ async function packDist(sourceDir, outPath, format = "zip") {
 
 ### 构建缓存优化
 
-我们还可以利用Vite的缓存机制加速构建，在`configResolved`钩子中使缓存版本信息，然后就不用在`closeBundle`中重复读取：
+我们还可以利用Vite的缓存机制加速构建，在`configResolved`钩子中使用缓存版本信息，然后就不用在`closeBundle`中重复读取：
 
 ```javascript
 export default function vitePluginArchive() {

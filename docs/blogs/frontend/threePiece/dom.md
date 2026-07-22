@@ -26,7 +26,7 @@ DOM将文档解析为一个由节点和对象（包含属性和方法的对象�
 ## DOM分类
 1、DOM Core（核心）
 
-提供了操作HTML元素的属性和方法，遍历DOM树、添加新节点、删除节点、修改节点。它并不专属于JavaScript，任何一种支持DOM的程序设计语言都可以使用它。JavaScript中的getElementById()、getElementByTagName()、getAttribute()和setAttribute()等方法都是DOM核心的组成部分。
+提供了操作HTML元素的属性和方法，遍历DOM树、添加新节点、删除节点、修改节点。它并不专属于JavaScript，任何一种支持DOM的程序设计语言都可以使用它。JavaScript中的getElementById()、getElementsByTagName()、getAttribute()和setAttribute()等方法都是DOM核心的组成部分。
 
 2、Html DOM
 
@@ -58,4 +58,4 @@ DOM将文档解析为一个由节点和对象（包含属性和方法的对象�
 
 1. 事件捕获阶段：事件从祖先元素往子元素查找（DOM树结构），直到捕获到事件目标 target。在这个过程中，默认情况下，事件相应的监听函数是不会被触发的。
 2. 事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。
-3. 事件冒泡阶段：事件从事件目标 target 开始，从子元素往冒泡祖先元素冒泡，直到页面的最上一级标签。
+3. 事件冒泡阶段：事件从事件目标 target 开始，从子元素往祖先元素冒泡，直到页面的最上一级标签。

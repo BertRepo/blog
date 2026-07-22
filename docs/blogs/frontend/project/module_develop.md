@@ -26,7 +26,7 @@ category:
 
 ## 常用实现
 
-日常中，我们需要通过一些库函数如 lodash 的_.cloneDeep或者使用JSON.parse(JSON.stringify(obj))来实现。
+日常中，我们需要通过一些库函数如 lodash 的 _.cloneDeep 或者使用 JSON.parse(JSON.stringify(obj)) 来实现。
 
 ## 深拷贝代码实现
 
@@ -120,7 +120,7 @@ console.log(cat2);
 
 ### 模块规范
 
-这里就不得不得展开讲讲模块化的一些规范了。模块规范主要分为三部分：模块引用、模块定义、模块标识。同时，模块规范很好地解决变量污染问题，每个模块具有独立空间，互不干扰，命名空间等方案与之相比相形见绌。模块规范支持引入和导出功能，这样可以顺畅地连接各个模块，实现彼此间的依赖关系。现有的主流 javascript 模块规范有 UMD、ESM、AMD、CMD 和 Common JS。
+这里就不得不展开讲讲模块化的一些规范了。模块规范主要分为三部分：模块引用、模块定义、模块标识。同时，模块规范很好地解决变量污染问题，每个模块具有独立空间，互不干扰，命名空间等方案与之相比相形见绌。模块规范支持引入和导出功能，这样可以顺畅地连接各个模块，实现彼此间的依赖关系。现有的主流 javascript 模块规范有 UMD、ESM、AMD、CMD 和 Common JS。
 
 #### UMD
 
@@ -168,7 +168,7 @@ CMD (Common Module Definition), 是 seajs 推崇的规范，CMD 则是依赖就�
 将 Rollup 作为开发依赖进行安装：
 
 ```shell
-npm install rollup --include=dev # 或者如下
+npm install rollup --save-dev # 或者如下
 yarn add rollup --dev
 ```
 
@@ -419,9 +419,8 @@ npm 提供的钩子有 pre 和 post 两种，对应各个命令后，如下：
 // postinstall.js文件
 const axios = require('axios').default;
 
-axios.get('/install/count').then({function ({
+axios.get('/install/count').then(function (response) {
   console.log(response);
-  });
 });
 ```
 
